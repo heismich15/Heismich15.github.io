@@ -1628,18 +1628,11 @@ header::after {
 
 
 
-/* Ajoutez à votre style.css */
-.btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none !important;
-}
-
-.btn:disabled:hover {
-    box-shadow: none !important;
-}
-
-/* Cache le champ honeypot */
-input[name="_honey"] {
-    display: none !important;
+/* Style pour le statut du formulaire */
+#formStatus {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 500;
+    text-align: center;
 }

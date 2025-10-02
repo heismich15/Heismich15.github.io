@@ -169,19 +169,45 @@ document.addEventListener('DOMContentLoaded', function() {
 }); 
 
 
-
-// Dans js/script.js
+// Formulaire de contact SIMPLE et FONCTIONNEL
 document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
+    const formStatus = document.getElementById('formStatus');
+    
+    // Données du formulaire
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
     
     // État de chargement
     submitBtn.innerHTML = '📤 Envoi en cours...';
     submitBtn.disabled = true;
+    formStatus.style.display = 'none';
     
-    // Réinitialiser après 3s (au cas où)
+    // Simulation d'envoi + ouverture client email
     setTimeout(() => {
+        // Créer le lien mailto
+        const subject = `Message portfolio de ${formData.name}`;
+        const body = `Nom: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+        const mailtoLink = `mailto:louismicheldjato9@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        
+        // Ouvrir client email
+        window.location.href = mailtoLink;
+        
+        // Message de succès
+        formStatus.innerHTML = '✅ Client email ouvert ! Complétez et envoyez votre message.';
+        formStatus.style.backgroundColor = '#d4edda';
+        formStatus.style.color = '#155724';
+        formStatus.style.display = 'block';
+        
+        // Réinitialiser le formulaire
+        this.reset();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-    }, 5000);
+    }, 1000);
 });
