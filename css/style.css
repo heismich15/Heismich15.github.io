@@ -403,7 +403,7 @@ section {
     font-weight: 700;
     margin-bottom: 10px;
     background: linear-gradient(45deg, var(--primary), var(--accent));
-    /*-webkit-background-clip: text;*/
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px rgba(67, 97, 238, 0.3);
 }
