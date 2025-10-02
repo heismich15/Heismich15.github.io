@@ -167,3 +167,21 @@ function initCyberCards() {
 document.addEventListener('DOMContentLoaded', function() {
     initCyberCards();
 }); 
+
+
+
+// Dans js/script.js
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // État de chargement
+    submitBtn.innerHTML = '📤 Envoi en cours...';
+    submitBtn.disabled = true;
+    
+    // Réinitialiser après 3s (au cas où)
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 5000);
+});

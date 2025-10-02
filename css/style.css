@@ -1625,3 +1625,21 @@ header::after {
     height: 3px;
   }
 }
+
+
+
+/* Ajoutez à votre style.css */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn:disabled:hover {
+    box-shadow: none !important;
+}
+
+/* Cache le champ honeypot */
+input[name="_honey"] {
+    display: none !important;
+}
